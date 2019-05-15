@@ -143,7 +143,7 @@ void titulo()
 	cout << "      |                                   ____________________            |" << endl;
 	cout << "      |                                   | IBA\xA5" << "EZ           |___________ |" << endl;
 	cout << "      |        XXXXXXXXXXXXXXXXXX         | FERNANDEZ SEGURA |   CORP    ||" << endl;
-	cout << "      |        SISTEMA DE ALMACEN         | CASTILLO ALVA    |  INDUSRY  ||" << endl;
+	cout << "      |        UAM BIEN BONITA            | CASTILLO ALVA    |  INDUSRY  ||" << endl;
 	cout << "      |        XXXXXXXXXXXXXXXXXX         | BENITES          |  COMPANY  ||" << endl;
 	cout << "      |  ______________XXX________________| LUZURRIAGA       |  BUSINESS ||" << endl;
 	cout << "      |  |  _    _     +18   _    _    _  |    __  ____ _    |   ______  ||" << endl;
