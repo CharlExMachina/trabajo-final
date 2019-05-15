@@ -6,10 +6,11 @@
 
 */
 
-#include<iostream>
-#include<cstdlib>
-#include<windows.h>
-#include<string>
+#include <iostream>
+#include <cstdlib>
+#include <windows.h>
+#include <string>
+#include <conio.h>
 
 #define max_char 30
 #define max_doce 12
@@ -342,7 +343,7 @@ void insertar_linea(Linea& arbol, int x)
 		arbol = new (struct nodoLinea);
 		arbol->codLinea = x;
 		cin.ignore();
-		cout << "\n\tingrese descripcion:";
+		cout << "\n\tIngrese descripcion:";
 		cin.getline(arbol->descripLinea, max_char);
 		arbol->enlace = nullptr;
 		arbol->izq = nullptr;
@@ -371,10 +372,18 @@ void insertar_producto(Producto& q, int x)
 		q = new(struct nodoProducto);
 		q->codProd = x;
 		cin.ignore();
-		cout << "\n\tNOMBRE:";
+		cout << "\n\tIngrese el nombre del producto: ";
 		cin.getline(q->nomProd, max_char);
-		cout << "\n\tPRECIO:";
-		cin >> q->precio;
+		cout << "\n\tIngrese el precio del producto: ";
+
+		while (!(cin >> q->precio))
+		{
+			cin.clear();
+			cin.ignore(1000, '\n');
+			cout << "Entrada invalida. Por favor digite un numero sin espacios o letras." << endl << endl;
+			cout << "\n\tIngrese el precio del producto: ";
+		}
+
 		q->izq = nullptr;
 		q->der = nullptr;
 	}
