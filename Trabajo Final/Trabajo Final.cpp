@@ -168,7 +168,7 @@ void menu1()
 	cout << "      (3)VENTAS                       //     //  //  //   //     //" << endl;
 	cout << "      (4)PROVEDORES                  //     //  //    // //     //" << endl;
 	cout << "      (5)PEDIDOS                    //     //  //      ///     //" << endl;
-	cout << "      (6)SALIR                     /////////  //       //     //" << endl;
+	cout << "      (6)SALIR                                //       //     //" << endl;
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Red);
 	cout << "                                  INFORMATICA - ESTRUCTURA DE DATOS" << endl; //SALIR DEL PROGRAMA
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Yellow);
