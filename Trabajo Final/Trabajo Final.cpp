@@ -1,4 +1,4 @@
-/*
+﻿/*
 	Trabajo: Implementacion de un inventario
 	Curso: Estructura de Datos
 	IDE: Codeblocks
@@ -158,21 +158,24 @@ void menu1()
 {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Yellow); 
 	cout << "      ---------------------------------------------------------------------\n";
-	cout << "              <<<<<<<<<<       SISTEMA DE ALMACEN        >>>>>>>>>>";
-	cout << "\n      ---------------------------------------------------------------------\n\n";
+	cout << "              <<<<<<<<<<       SISTEMA DE ALMACENAJE        >>>>>>>>>>";
+	cout << "\n    ---------------------------------------------------------------------\n\n";
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Def);
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Def);
-	cout << "                                         //     //  //       // //////////" << endl;
-	cout << "      (1)ALMACEN                        //     //  ////     //     //" << endl;
-	cout << "      (2)CLIENTES                      //     //  // //    //     //" << endl;
-	cout << "      (3)VENTAS                       //     //  //  //   //     //" << endl;
-	cout << "      (4)PROVEDORES                  //     //  //    // //     //" << endl;
-	cout << "      (5)PEDIDOS                    //     //  //      ///     //" << endl;
-	cout << "      (6)SALIR                                //       //     //" << endl;
+	cout << " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> " << endl;
+	cout << " ° 。 ° ˛˚˛ * *。*˚  •˛•˚ * 。˚ ˚      " << endl;
+	cout << "	˚ ˛ •˛•˚ * 。˚ ˚  •˛•˚ * 。˚ ˚      " << endl;
+	cout<<"	˚ ˛ •˛• ˚    ˚      •˛•˚ * 。˚ ˚        " << endl;
+	cout << "      田1---ALMACEN                    " << endl;
+	cout << "      田2---CLIENTES                   " << endl;
+	cout << "      田3---VENTAS                     " << endl;
+	cout << "      田4---PROVEDORES                 " << endl;
+	cout << "      田5---PEDIDOS                    " << endl;
+	cout << "      田6---SALIR						" << endl;
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Red);
 	cout << "                                  INFORMATICA - ESTRUCTURA DE DATOS" << endl; //SALIR DEL PROGRAMA
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Yellow);
-	cout << "      Ingrese Opcion : ";
+	cout << "      Ingrese Opcion-->  ";
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Def);
 }
 
