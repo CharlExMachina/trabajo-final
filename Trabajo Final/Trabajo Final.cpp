@@ -373,6 +373,12 @@ void insertar_producto(Producto& q, int x)
 		cout << "\n\tNOMBRE:";
 		cin.getline(q->nomProd, max_char);
 		cout << "\n\tPRECIO:";
+		// TODO: Seguir trabajando en esta validación
+		while (!(cin >> q->precio))
+		{
+			cout << "Entrada invalda. Intente nuevamente" << endl;
+			cout << "\n\tPRECIO:";
+		}
 		cin >> q->precio;
 		q->izq = nullptr;
 		q->der = nullptr;
@@ -863,7 +869,13 @@ void actualizar_proveedor(Proveedor& proveedor, int cod)
 
 
 			menu_actualizar_proveedor();
-			cin >> op;
+
+			while (!(cin >> op))
+			{
+				cout << "Entrada invalida. Por favor intentar nuevamente" << endl;
+				cout << "Ingrese el numero de opcion a la que desea acceder: ";
+			}
+
 			switch (op)
 			{
 			case 1: cin.ignore();
