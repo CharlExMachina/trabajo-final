@@ -1,12 +1,4 @@
-﻿/*
-	Trabajo: Implementacion de un inventario
-	Curso: Estructura de Datos
-	IDE: Codeblocks
-	Web: http://codebotic.blogspot.com
-
-*/
-
-#include <iostream>
+﻿#include <iostream>
 #include <cstdlib>
 #include <windows.h>
 #include <string>
