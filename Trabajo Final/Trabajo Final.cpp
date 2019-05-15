@@ -20,6 +20,7 @@
 #define Color_Def 15 /*color */
 #define Color_Yellow 14 /*color amarillo*/
 #define Color_Green 10 /*color verde*/
+#define Color_Blue 11 //color celeste 
 using namespace std;
 
 /*------ estructura para productos por cada linea ------*/
@@ -163,15 +164,16 @@ void menu1()
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Def);
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Def);
 	cout << " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> " << endl;
-	cout << " ° 。 ° ˛˚˛ * *。*˚  •˛•˚ * 。˚ ˚      " << endl;
-	cout << "	˚ ˛ •˛•˚ * 。˚ ˚  •˛•˚ * 。˚ ˚      " << endl;
-	cout<<"	˚ ˛ •˛• ˚    ˚      •˛•˚ * 。˚ ˚        " << endl;
-	cout << "      田1---ALMACEN                    " << endl;
-	cout << "      田2---CLIENTES                   " << endl;
-	cout << "      田3---VENTAS                     " << endl;
-	cout << "      田4---PROVEDORES                 " << endl;
-	cout << "      田5---PEDIDOS                    " << endl;
-	cout << "      田6---SALIR						" << endl;
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Blue);
+	cout << " ~  *  *   * *  * * *   * *   *  * *    " << endl;
+	cout << "  *  *  *  *  ~  * * *  *   *           " <<  endl;
+	cout<<"	*   ~   *  * * *   * * *     * *   *   * " << endl;
+	cout << "  >>>    1---ALMACEN                    " << endl;
+	cout << "  >>>    2---CLIENTES                   " << endl;
+	cout << "  >>>    3---VENTAS                     " << endl;
+	cout << "  >>>    4---PROVEDORES                 " << endl;
+	cout << "  >>>    5---PEDIDOS                    " << endl;
+	cout << "  >>>    6---SALIR						" << endl;
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Red);
 	cout << "                                  INFORMATICA - ESTRUCTURA DE DATOS" << endl; //SALIR DEL PROGRAMA
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Yellow);
