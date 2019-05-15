@@ -620,8 +620,8 @@ void insertar_producto_venta(DetalleVenta& q, Linea arbol)
 		validado = validar_codigo_producto(arbol, codLinea, x, r->ptrProducto);
 		if (validado == true)
 		{
-			cout << "\n\t NOMBRE :" << (r->ptrProducto)->nomProd;
-			cout << "\n\t PRECIO :" << (r->ptrProducto)->precio;
+			cout << "\n\t NOMBRE :" << r->ptrProducto->nomProd;
+			cout << "\n\t PRECIO :" << r->ptrProducto->precio;
 		}
 		if (validado == false)
 		{
@@ -647,9 +647,9 @@ void insertar_producto_venta(DetalleVenta& q, Linea arbol)
 	cout << "\n\tCANTIDAD:";
 	cin >> r->cantidad;
 
-	strcpy_s(r->marca, (r->ptrProducto)->nomProd);
+	strcpy_s(r->marca, r->ptrProducto->nomProd);
 
-	r->subtotal = (r->cantidad) * ((r->ptrProducto)->precio);
+	r->subtotal = r->cantidad * r->ptrProducto->precio;
 	r->sgte = nullptr;
 
 	if (q == nullptr)
@@ -715,7 +715,7 @@ void registrar_venta(Venta& venta, Cliente cliente, Linea arbol)
 		cin >> x;
 		validado = validar_codigo_cliente(cliente, x, q->ptrCliente);
 		if (validado == true)
-			cout << "\n\tNOMBRE:" << (q->ptrCliente)->nomCliente;
+			cout << "\n\tNOMBRE:" << q->ptrCliente->nomCliente;
 		if (validado == false)
 			cout << "\n\tCODIGO INVALIDO...!!";
 		cout << "\n\n\tDesea continuar con el registro de venta ? <y/n>: ";
@@ -726,10 +726,10 @@ void registrar_venta(Venta& venta, Cliente cliente, Linea arbol)
 
 		case 'Y': break;
 
-		case 'n': delete(q);
+		case 'n': delete q;
 			return;
 
-		case 'N': delete(q);
+		case 'N': delete q;
 			return;
 
 		default: cout << "\n\t Ingrese una opcion valida";
@@ -774,7 +774,7 @@ void listar_ventas(Venta q)
 		cout << "\n\tCODIGO DE VENTA: " << q->codigo;
 		cout << "\n\tFECHA  : " << q->fecha;
 		cout << "\n\tCODIGO DE CLIENTE : " << q->codCliente;
-		cout << "\n\tNOMBRE DEL CLIENTE:" << (q->ptrCliente)->nomCliente;
+		cout << "\n\tNOMBRE DEL CLIENTE:" << q->ptrCliente->nomCliente;
 		cout << "\n\tMONTO:" << q->monto;
 
 		q = q->sgte;
@@ -795,17 +795,17 @@ void mostrar_venta(Venta q, int cod)
 			cout << "\n\tCODIGO DE VENTA: " << q->codigo;
 			cout << "\n\tFECHA  : " << q->fecha;
 			cout << "\n\tCODIGO DE CLIENTE : " << q->codCliente;
-			cout << "\n\tNOMBRE DEL CLIENTE:" << (q->ptrCliente)->nomCliente;
+			cout << "\n\tNOMBRE DEL CLIENTE:" << q->ptrCliente->nomCliente;
 			cout << "\n\tMONTO:" << q->monto << endl;
 			while (q->detalle != nullptr)
 			{
 				cout << "\n\n\tPRODUCTO [" << i << "]\n";
-				cout << "\n\tCODIGO:" << (q->detalle)->codigo;
-				cout << "\n\tCODIGO DEL PRODUCTO:" << (q->detalle)->codProd;
-				cout << "\n\tCANTIDAD:" << (q->detalle)->cantidad;
-				cout << "\n\tMARCA:" << (q->detalle)->ptrProducto->nomProd;
-				cout << "\n\tSUBTOTAL:" << (q->detalle)->subtotal;
-				(q->detalle) = (q->detalle)->sgte;
+				cout << "\n\tCODIGO:" << q->detalle->codigo;
+				cout << "\n\tCODIGO DEL PRODUCTO:" << q->detalle->codProd;
+				cout << "\n\tCANTIDAD:" << q->detalle->cantidad;
+				cout << "\n\tMARCA:" << q->detalle->ptrProducto->nomProd;
+				cout << "\n\tSUBTOTAL:" << q->detalle->subtotal;
+				q->detalle = q->detalle->sgte;
 				i++;
 			}
 			q = q->sgte;
@@ -937,7 +937,7 @@ void listar_pedidos(Pedido q)
 		cout << "\n\tCODIGO DE PEDIDO: " << q->codigo;
 		cout << "\n\tFECHA  : " << q->fecha;
 		cout << "\n\tCODIGO DE PROVEEDOR : " << q->codProveedor;
-		cout << "\n\tRAZON SOCIAL:" << (q->ptrProveedor)->razonSocial;
+		cout << "\n\tRAZON SOCIAL:" << q->ptrProveedor->razonSocial;
 		cout << "\n\tMONTO:" << q->monto;
 
 		q = q->sgte;
@@ -968,8 +968,8 @@ void insertar_producto_pedido(DetallePedido& q, Linea arbol)
 		validado = validar_codigo_producto(arbol, codLinea, x, r->ptrProducto);
 		if (validado == true)
 		{
-			cout << "\n\t NOMBRE :" << (r->ptrProducto)->nomProd;
-			cout << "\n\t PRECIO :" << (r->ptrProducto)->precio;
+			cout << "\n\t NOMBRE :" << r->ptrProducto->nomProd;
+			cout << "\n\t PRECIO :" << r->ptrProducto->precio;
 		}
 		if (validado == false)
 			cout << "\n\tCODIGO INVALIDO...!!";
@@ -993,9 +993,9 @@ void insertar_producto_pedido(DetallePedido& q, Linea arbol)
 	cout << "\n\tCANTIDAD:";
 	cin >> r->cantidad;
 
-	strcpy_s(r->marca, (r->ptrProducto)->nomProd);
+	strcpy_s(r->marca, r->ptrProducto->nomProd);
 
-	r->subtotal = (r->cantidad) * ((r->ptrProducto)->precio);
+	r->subtotal = r->cantidad * r->ptrProducto->precio;
 	r->sgte = nullptr;
 
 	if (q == nullptr)
@@ -1077,7 +1077,7 @@ void registrar_pedido(Pedido& pedido, Proveedor proveedor, Linea arbol)
 		cin >> x;
 		validado = validar_codigo_proveedor(proveedor, x, q->ptrProveedor);
 		if (validado == true)
-			cout << "\n\tRAZON SOCIAL:" << (q->ptrProveedor)->razonSocial;
+			cout << "\n\tRAZON SOCIAL:" << q->ptrProveedor->razonSocial;
 
 		if (validado == false)
 			cout << "\n\tCODIGO INVALIDO...!!";
@@ -1089,10 +1089,10 @@ void registrar_pedido(Pedido& pedido, Proveedor proveedor, Linea arbol)
 
 		case 'Y': break;
 
-		case 'n': delete(q);
+		case 'n': delete q;
 			return;
 
-		case 'N': delete(q);
+		case 'N': delete q;
 			return;
 
 		default: cout << "\n\t Ingrese una opcion valida";
@@ -1139,17 +1139,17 @@ void mostrar_pedido(Pedido q, int cod)
 			cout << "\n\tCODIGO DE PEDIDO: " << q->codigo;
 			cout << "\n\tFECHA  : " << q->fecha;
 			cout << "\n\tCODIGO DE PROVEEDOR : " << q->codProveedor;
-			cout << "\n\tRAZON SOCIAL:" << (q->ptrProveedor)->razonSocial;
+			cout << "\n\tRAZON SOCIAL:" << q->ptrProveedor->razonSocial;
 			cout << "\n\tMONTO:" << q->monto << endl;
 			while (q->detalle != nullptr)
 			{
 				cout << "\n\n\tPRODUCTO [" << i << "]\n";
-				cout << "\n\tCODIGO:" << (q->detalle)->codigo;
-				cout << "\n\tCODIGO DEL PRODUCTO:" << (q->detalle)->codProd;
-				cout << "\n\tCANTIDAD:" << (q->detalle)->cantidad;
-				cout << "\n\tMARCA:" << (q->detalle)->ptrProducto->nomProd;
-				cout << "\n\tSUBTOTAL:" << (q->detalle)->subtotal;
-				(q->detalle) = (q->detalle)->sgte;
+				cout << "\n\tCODIGO:" << q->detalle->codigo;
+				cout << "\n\tCODIGO DEL PRODUCTO:" << q->detalle->codProd;
+				cout << "\n\tCANTIDAD:" << q->detalle->cantidad;
+				cout << "\n\tMARCA:" << q->detalle->ptrProducto->nomProd;
+				cout << "\n\tSUBTOTAL:" << q->detalle->subtotal;
+				q->detalle = q->detalle->sgte;
 				i++;
 			}
 			q = q->sgte;
