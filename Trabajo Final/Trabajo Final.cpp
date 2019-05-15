@@ -1,8 +1,7 @@
 /*
 	Trabajo: Implementacion de un inventario
 	Curso: Estructura de Datos
-	IDE: Codeblocks
-	Web: http://codebotic.blogspot.com
+	IDE: Visual Studio 2019
 
 */
 
@@ -159,16 +158,16 @@ void menu1()
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Yellow); 
 	cout << "      ---------------------------------------------------------------------\n";
 	cout << "              <<<<<<<<<<       SISTEMA DE ALMACEN        >>>>>>>>>>";
-	cout << "\n      ---------------------------------------------------------------------\n\n";
+	cout << "\n      -------------------------------------------------------------------\n\n";
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Def);
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Def);
-	cout << "                                         //     //  //       // //////////" << endl;
-	cout << "      (1)ALMACEN                        //     //  ////     //     //" << endl;
-	cout << "      (2)CLIENTES                      //     //  // //    //     //" << endl;
-	cout << "      (3)VENTAS                       //     //  //  //   //     //" << endl;
-	cout << "      (4)PROVEDORES                  //     //  //    // //     //" << endl;
-	cout << "      (5)PEDIDOS                    //     //  //      ///     //" << endl;
-	cout << "      (6)SALIR                                //       //     //" << endl;
+	cout << "                                         //        //  ///////////  ////     ////     " << endl;
+	cout << "      (1)ALMACEN                        //        //  //       //  // //  //  //      " << endl;
+	cout << "      (2)CLIENTES                      //        //  //       //  //  // //  //       " << endl;
+	cout << "      (3)VENTAS                       //        //  ///////////  //   ///   //        " << endl;
+	cout << "      (4)PROVEDORES                  //        //  //       //  //         //         " << endl;
+	cout << "      (5)PEDIDOS                    //        //  //       //  //         //          " << endl;
+	cout << "      (6)SALIR                     ////////////  //       //  //         //           " << endl;
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Red);
 	cout << "                                  INFORMATICA - ESTRUCTURA DE DATOS" << endl; //SALIR DEL PROGRAMA
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Yellow);
@@ -185,13 +184,13 @@ void menu2()
 	cout << "[_]_[_]_[_]_[_]_[_]ALMACEN[_]_[_]_[_]_[_]_[_]";
 	cout << "\n\n\n";
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Def);
-	cout << "       _________________________             //     //  //       // ////////// " << endl;
-	cout << "      |1} [REGISTRAR LINEA]     |           //     //  ////     //     // " << endl;
-	cout << "      |2} [MOSTRAR LINEA]       |          //     //  // //    //     // " << endl;
-	cout << "      |3} [REGISTRAR PRODUCTO]  |         //     //  //  //   //     // " << endl;
-	cout << "      |4} [MOSTRAR PRODUCTOS]   |        //     //  //    // //     // " << endl;
-	cout << "      |5} [REGRESAR]            |       //     //  //      ///     // " << endl;
-	cout << "      |_________________________|      /////////  //       //     // " << endl;
+	cout << "       _________________________             //       //  /////////// ////      ////  " << endl;
+	cout << "      |1} [REGISTRAR LINEA]     |           //       //  //       // // //    // //   " << endl;
+	cout << "      |2} [MOSTRAR LINEA]       |          //       //  //       // //  //  //  //    " << endl;
+	cout << "      |3} [REGISTRAR PRODUCTO]  |         //       //  /////////// //   ////   //     " << endl;
+	cout << "      |4} [MOSTRAR PRODUCTOS]   |        //       //  //       // //          //      " << endl;
+	cout << "      |5} [REGRESAR]            |       //       //  //       // //          //       " << endl;
+	cout << "      |_________________________|      ///////////  //       // //          //        " << endl;
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Red);
 	cout << "                                  INFORMATICA - ESTRUCTURA DE DATOS" << endl; //SALIR DEL PROGRAMA
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Yellow);
@@ -208,13 +207,13 @@ void menu3()
 	cout << "                 <<<<<<<<<<         CLIENTES        >>>>>>>>>>";
 	cout << "\n      ---------------------------------------------------------------------\n\n";
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Def);
-	cout << "      (1)REGISTRAR CLIENTE               //     //  //       // //////////" << endl;
-	cout << "                                        //     //  ////     //     //" << endl;
-	cout << "      (2)ACTUALIZAR CLIENTE            //     //  // //    //     //" << endl;
-	cout << "                                      //     //  //  //   //     //" << endl;
-	cout << "      (3)LISTAR CLIENTES             //     //  //    // //     //" << endl;
-	cout << "                                    //     //  //      ///     //" << endl;
-	cout << "      (5)REGRESAR                  /////////  //       //     //" << endl;
+	cout << "      (1)REGISTRAR CLIENTE               //       //  /////////// ////     //// " << endl;
+	cout << "                                        //       //  //       // // //   // //  " << endl;
+	cout << "      (2)ACTUALIZAR CLIENTE            //       //  //       // //  // //  //   " << endl;
+	cout << "                                      //       //  /////////// //   ////  //    " << endl;
+	cout << "      (3)LISTAR CLIENTES             //       //  //       // //         //     " << endl;
+	cout << "                                    //       //  //       // //         //      " << endl;
+	cout << "      (5)REGRESAR                  ///////////  //       // //         //       " << endl;
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Red);
 	cout << "                                  INFORMATICA - ESTRUCTURA DE DATOS" << endl; //SALIR DEL PROGRAMA
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Yellow);
@@ -231,13 +230,13 @@ void menu_actualizar_cliente()
 	cout << "              <<<<<<<<<<  CLIENTES -> MODIFICAR DATOS   >>>>>>>>>>";
 	cout << "\n      ---------------------------------------------------------------------\n\n";
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Def);
-	cout << "                                        //     //  //       // //////////" << endl;
-	cout << "      (1)MODIFICAR NOMBRE              //     //  ////     //     //" << endl;
-	cout << "      (2)MODIFICAR APELLIDOS          //     //  // //    //     //" << endl;
-	cout << "      (3)MODIFICAR TELEFONO          //     //  //  //   //     //" << endl;
-	cout << "      (4)MODIFICAR E-MAIL           //     //  //    // //     //" << endl;
-	cout << "      (5)MODIFICAR DIRECCION       //     //  //      ///     //" << endl;
-	cout << "      (6)REGRESAR                 /////////  //       //     //" << endl;
+	cout << "                                        //       //  /////////// ////     //// " << endl;
+	cout << "      (1)MODIFICAR NOMBRE              //       //  //       // // //   // //  " << endl;
+	cout << "      (2)MODIFICAR APELLIDOS          //       //  //       // //  // //  //   " << endl;
+	cout << "      (3)MODIFICAR TELEFONO          //       //  /////////// //   ///   //    " << endl;
+	cout << "      (4)MODIFICAR E-MAIL           //       //  //       // //         //     " << endl;
+	cout << "      (5)MODIFICAR DIRECCION       //       //  //       // //         //        " << endl;
+	cout << "      (6)REGRESAR                 ///////////  //       // //         //         " << endl;
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Red);
 	cout << "                                  INFORMATICA - ESTRUCTURA DE DATOS" << endl; //SALIR DEL PROGRAMA
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Yellow);
@@ -250,17 +249,17 @@ void menu_actualizar_cliente()
 void menu4()
 {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Yellow);
-	cout << "      ---------------------------------------------------------------------\n";
-	cout << "                 <<<<<<<<<<         VENTAS        >>>>>>>>>>";
-	cout << "\n      ---------------------------------------------------------------------\n\n";
+	cout << "  _ _ _ _ _ _ _  _ _ _ _ _ _ _\n";
+	cout << " -_-_-_-_-_-[VENTAS]-_-_-_-_-_-";
+	cout << "\n - - - - - -    - - - - - - \n\n";
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Def);
-	cout << "      (1)VENDER PRODUCTOS                //     //  //       // //////////" << endl;
-	cout << "                                        //     //  ////     //     //" << endl;
-	cout << "      (2)MOSTRAR VENTAS REALIZADAS     //     //  // //    //     //" << endl;
-	cout << "                                      //     //  //  //   //     //" << endl;
-	cout << "      (3)DETALLAR VENTA              //     //  //    // //     //" << endl;
-	cout << "                                    //     //  //      ///     //" << endl;
-	cout << "      (5)REGRESAR                  /////////  //       //     //" << endl;
+	cout << "      1.> VENDER PRODUCTOS                //       //  ///////////  ////     ////   " << endl;
+	cout << "                                         //       //  //       //  // //   // //    " << endl;
+	cout << "      2.> MOSTRAR VENTAS REALIZADAS     //       //  //       //  //  // //  //     " << endl;
+	cout << "                                       //       //  ///////////  //    //   //      " << endl;
+	cout << "      3.> DETALLAR VENTA              //       //  //       //  //         //       " << endl;
+	cout << "                                     //       //  //       //  //         //        " << endl;
+	cout << "      4.> REGRESAR                  ///////////  //       //  //         //         " << endl;
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Red);
 	cout << "                                  INFORMATICA - ESTRUCTURA DE DATOS" << endl; //SALIR DEL PROGRAMA
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Yellow);
@@ -276,13 +275,13 @@ void menu5()
 	cout << "                 <<<<<<<<<<         PROVEEDORES        >>>>>>>>>>";
 	cout << "\n      ---------------------------------------------------------------------\n\n";
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Def);
-	cout << "      (1)REGISTRAR PROVEEDOR             //     //  //       // //////////" << endl;
-	cout << "                                        //     //  ////     //     //" << endl;
-	cout << "      (2)ACTUALIZAR PROVEEDOR          //     //  // //    //     //" << endl;
-	cout << "                                      //     //  //  //   //     //" << endl;
-	cout << "      (3)LISTAR PROVEEDORES          //     //  //    // //     //" << endl;
-	cout << "                                    //     //  //      ///     //" << endl;
-	cout << "      (5)REGRESAR                  /////////  //       //     //" << endl;
+	cout << "      (1)REGISTRAR PROVEEDOR             //       //  /////////// ////     ////" << endl;
+	cout << "                                        //       //  //       // // //   // //        " << endl;
+	cout << "      (2)ACTUALIZAR PROVEEDOR          //       //  //       // //  // //  //        " << endl;
+	cout << "                                      //       //  /////////// //   ///   //        " << endl;
+	cout << "      (3)LISTAR PROVEEDORES          //       //  //       // //         //       " << endl;
+	cout << "                                    //       //  //       // //         //        " << endl;
+	cout << "      (5)REGRESAR                  ///////////  //       // //         //         " << endl;
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Red);
 	cout << "                                  INFORMATICA - ESTRUCTURA DE DATOS" << endl; //SALIR DEL PROGRAMA
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Yellow);
@@ -298,13 +297,13 @@ void menu_actualizar_proveedor()
 	cout << "            <<<<<<<<<<  PROVEEDORES -> MODIFICAR DATOS   >>>>>>>>>>";
 	cout << "\n      ---------------------------------------------------------------------\n\n";
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Def);
-	cout << "                                        //     //  //       // //////////" << endl;
-	cout << "      (1)MODIFICAR RAZON SOCIAL        //     //  ////     //     //" << endl;
-	cout << "      (2)MODIFICAR TELEFONO           //     //  // //    //     //" << endl;
-	cout << "      (3)MODIFICAR E-MAIL            //     //  //  //   //     //" << endl;
-	cout << "      (4)MODIFICAR DIRECCION        //     //  //    // //     //" << endl;
-	cout << "      (5)MODIFICAR WEB             //     //  //      ///     //" << endl;
-	cout << "      (6)REGRESAR                 /////////  //       //     //" << endl;
+	cout << "                                        //       //  /////////// ////     ////     " << endl;
+	cout << "      (1)MODIFICAR RAZON SOCIAL        //       //  //       // // //   // //      " << endl;
+	cout << "      (2)MODIFICAR TELEFONO           //       //  //       // //  // //  //       " << endl;
+	cout << "      (3)MODIFICAR E-MAIL            //       //  /////////// //   ////  //        " << endl;
+	cout << "      (4)MODIFICAR DIRECCION        //       //  //       // //         //         " << endl;
+	cout << "      (5)MODIFICAR WEB             //       //  //       // //         //          " << endl;
+	cout << "      (6)REGRESAR                 ///////////  //       // //         //           " << endl;
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Red);
 	cout << "                                  INFORMATICA - ESTRUCTURA DE DATOS" << endl; //SALIR DEL PROGRAMA
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Yellow);
@@ -320,13 +319,13 @@ void menu6()
 	cout << "                 <<<<<<<<<<         PEDIDOS        >>>>>>>>>>";
 	cout << "\n      ---------------------------------------------------------------------\n\n";
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Def);
-	cout << "      (1)REALIZAR UN PEDIDO              //     //  //       // //////////" << endl;
-	cout << "                                        //     //  ////     //     //" << endl;
-	cout << "      (2)MOSTRAR PEDIDOS REALIZADOS    //     //  // //    //     //" << endl;
-	cout << "                                      //     //  //  //   //     //" << endl;
-	cout << "      (3)DETALLAR PEDIDO             //     //  //    // //     //" << endl;
-	cout << "                                    //     //  //      ///     //" << endl;
-	cout << "      (5)REGRESAR                  /////////  //       //     //" << endl;
+	cout << "      (1)REALIZAR UN PEDIDO              //        //  /////////// ////" << endl;
+	cout << "                                        //        //  //       // // //    ////      " << endl;
+	cout << "      (2)MOSTRAR PEDIDOS REALIZADOS    //        //  //       // //  //  // //     " << endl;
+	cout << "                                      //        //  /////////// //   ////  //      " << endl;
+	cout << "      (3)DETALLAR PEDIDO             //        //  //       // //         //    " << endl;
+	cout << "                                    //        //  //       // //         //     " << endl;
+	cout << "      (5)REGRESAR                  ////////////  //       // //         //      " << endl;
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Red);
 	cout << "                                  INFORMATICA - ESTRUCTURA DE DATOS" << endl; //SALIR DEL PROGRAMA
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Yellow);
