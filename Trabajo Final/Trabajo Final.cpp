@@ -1,4 +1,12 @@
-﻿#include <iostream>
+﻿/*
+	Trabajo: Implementacion de un inventario
+	Curso: Estructura de Datos
+	IDE: Codeblocks
+	Web: http://codebotic.blogspot.com
+
+*/
+
+#include <iostream>
 #include <cstdlib>
 #include <windows.h>
 #include <string>
@@ -156,8 +164,8 @@ void menu1()
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Def);
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Def);
 	cout << " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> " << endl;
-	cout << " ° 。 ° ˛˚˛ * *。*˚  •˛•˚ * 。˚ ˚      " << endl;
-	cout << "	˚ ˛ •˛•˚ * 。˚ ˚  •˛•˚ * 。˚ ˚      " << endl;
+	cout << " ° 。 ° ˛˚˛ * *。*˚  •˛•˚ * 。˚ ˚      " << endl;
+	cout << "	˚ ˛ •˛•˚ * 。˚ ˚  •˛•˚ * 。˚ ˚      " << endl;
 	cout<<"	˚ ˛ •˛• ˚    ˚      •˛•˚ * 。˚ ˚        " << endl;
 	cout << "      田1---ALMACEN                    " << endl;
 	cout << "      田2---CLIENTES                   " << endl;
