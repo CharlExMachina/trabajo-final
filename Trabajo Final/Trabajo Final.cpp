@@ -139,13 +139,13 @@ void titulo()
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Green);
 
 	cout << "      _____________________________________________________________________" << endl;
-	cout << "      |                                   ____________________            |" << endl;
-	cout << "      |                                   | IBA\xA5" << "EZ           |___________ |" << endl;
-	cout << "      |        XXXXXXXXXXXXXXXXXX         | FERNANDEZ SEGURA |   CORP    ||" << endl;
-	cout << "      |        UAM BIEN BONITA            | CASTILLO ALVA    |  INDUSRY  ||" << endl;
-	cout << "      |        XXXXXXXXXXXXXXXXXX         | BENITES          |  COMPANY  ||" << endl;
-	cout << "      |  ______________XXX________________| LUZURRIAGA       |  BUSINESS ||" << endl;
-	cout << "      |  |  _    _     +18   _    _    _  |    __  ____ _    |   ______  ||" << endl;
+	cout << "      |                                   ____________________           ||" << endl;
+	cout << "      |                                   |        " << "          |___________||" << endl;
+	cout << "      |        XXXXXXXXXXXXXXXXXX         |                  |           ||" << endl;
+	cout << "      |          UAM BIEN BONITA          |                  |           ||" << endl;
+	cout << "      |        XXXXXXXXXXXXXXXXXX         |                  |           ||" << endl;
+	cout << "      |  ______________XXX________________|                  |           ||" << endl;
+	cout << "      |  |  _    _           _    _    _  |    __  ____ _    |   ______  ||" << endl;
 	cout << "      |  | | |  | |  _____  | |  | |  | | |       ______     |   |  _ |  ||" << endl;
 	cout << "      |  | |_|  |_|  | | |  |_|  |_|  |_| |       |  | |     |   |  | |  ||" << endl;
 	cout << "      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^" << endl;
@@ -1173,6 +1173,19 @@ int main()
 	Venta venta = nullptr;
 	Proveedor proveedor = nullptr;
 	Pedido pedido = nullptr;
+
+	cout << "Inicializando proyecto...\n";
+	Sleep(610);
+	system("cls");
+	cout << "\n\n\n\n\t\t\t      //        //  ////////////  ////      ////\n";
+	cout << "\t\t\t     //        //  //        //  // //    // // \n";
+	cout << "\t\t\t    //        //  //        //  //  //  //  //  \n";
+	cout << "\t\t\t   //        //  ////////////  //   ////   //   \n";
+	cout << "\t\t\t  //        //  //        //  //          //    \n";
+	cout << "\t\t\t //        //  //        //  //          //     \n";
+	cout << "\t\t\t////////////  //        //  //          //      \n";
+	Sleep(780);
+	system("cls");
 
 
 	int op, op2, dato;
