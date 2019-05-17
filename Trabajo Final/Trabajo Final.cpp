@@ -1,5 +1,5 @@
 /*
-	Trabajo: Implementacion de un inventario
+	Trabajo: Implementacion de un inventario 
 	Curso: Estructura de Datos
 	IDE: Visual Studio 2019
 
@@ -7,7 +7,7 @@
 
 #include<iostream>
 #include<cstdlib>
-#include<windows.h>
+#include<windows.h> //para poder poner colores xd 
 #include<string>
 
 #define max_char 30
@@ -138,18 +138,25 @@ void gotoxy(int x, int y)
 void titulo()
 {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Green);
-
+	
 	cout << "      _____________________________________________________________________" << endl;
-	cout << "      |                                   ____________________           ||" << endl;
-	cout << "      |                                   |        " << "          |___________||" << endl;
-	cout << "      |        XXXXXXXXXXXXXXXXXX         |                  |           ||" << endl;
-	cout << "      |          UAM BIEN BONITA          |                  |           ||" << endl;
-	cout << "      |        XXXXXXXXXXXXXXXXXX         |                  |           ||" << endl;
-	cout << "      |  ______________XXX________________|                  |           ||" << endl;
-	cout << "      |  |  _    _           _    _    _  |    __  ____ _    |   ______  ||" << endl;
+	cout << "      #                                   ____________________           ||" << endl;
+	cout << "      |                                   |        " << "                |Greg#||" << endl;
+	cout << "      #        -------------------        |                  |           ||" << endl;
+	cout << "      |        | UAM BIEN BONITA |        |                  |           ||" << endl;
+	cout << "      #        -------------------        |                  |           ||" << endl;
+	cout << "      |  ______________###________________|                  |           ||" << endl;
+	cout << "      #  |  _    _           _    _    _  |    __  ____ _    |   ______  ||" << endl;
 	cout << "      |  | | |  | |  _____  | |  | |  | | |       ______     |   |  _ |  ||" << endl;
-	cout << "      |  | |_|  |_|  | | |  |_|  |_|  |_| |       |  | |     |   |  | |  ||" << endl;
-	cout << "      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^" << endl;
+	cout << "      #  | |_|  |_|  | | |  |_|  |_|  |_| |       |  | |     |   |  | |  ||" << endl;
+	cout << "      ___________________________________________________________________  " << endl;
+	cout << "      ____Jonathan Herzing----Paola Rivas----Carlos Eduardo Perez________ " << endl;
+	cout << endl;
+
+	
+	system("pause");
+	system("cls");
+
 }
 
 
