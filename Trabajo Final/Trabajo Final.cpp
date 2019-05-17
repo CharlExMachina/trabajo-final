@@ -375,14 +375,14 @@ void insertar_producto(Producto& q, int x)
 		q = new(struct nodoProducto);
 		q->codProd = x;
 		cin.ignore();
-		cout << "\n\tNOMBRE:";
+		cout << "\n\t>> Nombre :";
 		cin.getline(q->nomProd, max_char);
-		cout << "\n\tPRECIO:";
+		cout << "\n\t>> Precio :";
 		// TODO: Seguir trabajando en esta validaci�n
 		while (!(cin >> q->precio))
 		{
-			cout << "Entrada invalda. Intente nuevamente" << endl;
-			cout << "\n\tPRECIO:";
+			cout << "Entrada invalda. Intente nuevamente, gracias. " << endl;
+			cout << "\n\t~~~ Precio ~~~ : ";
 		}
 		cin >> q->precio;
 		q->izq = nullptr;
