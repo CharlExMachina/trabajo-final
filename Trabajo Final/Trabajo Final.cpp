@@ -175,7 +175,7 @@ void menu1()
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Red);
 	cout << "                                  INFORMATICA - ESTRUCTURA DE DATOS" << endl; //SALIR DEL PROGRAMA
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Yellow);
-	cout << "      Ingrese Opcion : ";
+	cout << "      Ingrese Opcion -->  ";
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Def);
 }
 
@@ -189,16 +189,16 @@ void menu2()
 	cout << "\n\n\n";
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Def);
 	cout << "       _________________________             //       //  /////////// ////      ////  " << endl;
-	cout << "      |1} [REGISTRAR LINEA]     |           //       //  //       // // //    // //   " << endl;
-	cout << "      |2} [MOSTRAR LINEA]       |          //       //  //       // //  //  //  //    " << endl;
-	cout << "      |3} [REGISTRAR PRODUCTO]  |         //       //  /////////// //   ////   //     " << endl;
-	cout << "      |4} [MOSTRAR PRODUCTOS]   |        //       //  //       // //          //      " << endl;
-	cout << "      |5} [REGRESAR]            |       //       //  //       // //          //       " << endl;
+	cout << "      |1--> REGISTRAR LINEA     |           //       //  //       // // //    // //   " << endl;
+	cout << "      |2--> MOSTRAR LINEA       |          //       //  //       // //  //  //  //    " << endl;
+	cout << "      |3--> REGISTRAR PRODUCTO  |         //       //  /////////// //   ////   //     " << endl;
+	cout << "      |4--> MOSTRAR PRODUCTOS   |        //       //  //       // //          //      " << endl;
+	cout << "      |5--> REGRESAR            |       //       //  //       // //          //       " << endl;
 	cout << "      |_________________________|      ///////////  //       // //          //        " << endl;
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Red);
 	cout << "                                  INFORMATICA - ESTRUCTURA DE DATOS" << endl; //SALIR DEL PROGRAMA
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Yellow);
-	cout << "      Ingrese Opcion : ";
+	cout << "      Ingrese Opcion-->  ";
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Def);
 }
 
