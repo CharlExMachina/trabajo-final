@@ -370,6 +370,7 @@ void mostrar_linea(Linea arbol)
 /*------------ Funcion que inserta un nuevo producto a la linea ---------------------*/
 void insertar_producto(Producto& q, int x)
 {
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Red);
 	if (q == nullptr)
 	{
 		q = new(struct nodoProducto);
