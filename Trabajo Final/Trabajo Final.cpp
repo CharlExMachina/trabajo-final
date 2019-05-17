@@ -346,7 +346,7 @@ void insertar_linea(Linea& arbol, int x)
 		arbol = new (struct nodoLinea);
 		arbol->codLinea = x;
 		cin.ignore();
-		cout << "\n\tingrese descripcion:";
+		cout << "\n\tIngrese la descripcion :";
 		cin.getline(arbol->descripLinea, max_char);
 		arbol->enlace = nullptr;
 		arbol->izq = nullptr;
