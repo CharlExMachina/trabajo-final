@@ -1,7 +1,8 @@
 /*
 	Trabajo: Implementacion de un inventario 
-	Curso: Estructura de Datos
-	IDE: Visual Studio 2019
+	Curso: Estructura de Datos.
+	IDE: Visual Studio 2019.
+
 
 */
 
@@ -140,15 +141,15 @@ void titulo()
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Green);
 	
 	cout << "      _____________________________________________________________________" << endl;
-	cout << "      #                                   ____________________           ||" << endl;
+	cout << "      |                                   ____________________           ||" << endl;
 	cout << "      |                                   |        " << "                |Greg#||" << endl;
-	cout << "      #        -------------------        |                  |           ||" << endl;
+	cout << "      |        -------------------        |                  |           ||" << endl;
 	cout << "      |        | UAM BIEN BONITA |        |                  |           ||" << endl;
-	cout << "      #        -------------------        |                  |           ||" << endl;
+	cout << "      |        -------------------        |                  |           ||" << endl;
 	cout << "      |  ______________###________________|                  |           ||" << endl;
-	cout << "      #  |  _    _           _    _    _  |    __  ____ _    |   ______  ||" << endl;
+	cout << "      |  |  _    _           _    _    _  |    __  ____ _    |   ______  ||" << endl;
 	cout << "      |  | | |  | |  _____  | |  | |  | | |       ______     |   |  _ |  ||" << endl;
-	cout << "      #  | |_|  |_|  | | |  |_|  |_|  |_| |       |  | |     |   |  | |  ||" << endl;
+	cout << "      |  | |_|  |_|  | | |  |_|  |_|  |_| |       |  | |     |   |  | |  ||" << endl;
 	cout << "      ___________________________________________________________________  " << endl;
 	cout << "      ____Jonathan Herzing----Paola Rivas----Carlos Eduardo Perez________ " << endl;
 	cout << endl;
@@ -1385,7 +1386,7 @@ int main()
 					listar_pedidos(pedido);
 					break;
 
-				case 3: cout << "\n\n\t\t[    DETALLES DE PEDIDO    ]\n";
+				case 3: cout << "\n\n\t\t[------DETALLES DE PEDIDO-----~]\n";
 					cout << "\t\t------------------------\n";
 					cout << "\n\tIngrese codigo de pedido:";
 					cin >> dato;
