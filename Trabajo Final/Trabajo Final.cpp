@@ -13,6 +13,7 @@ void Sonido();
 #include<windows.h> //para poder poner colores y parar el tiempo porque soy bien barbaro xd
 #include<string>
 #include <mmsystem.h>
+#include <conio.h>
 
 #define max_char 30
 #define max_doce 12
@@ -158,7 +159,7 @@ void titulo()
 	cout << endl;
 
 	
-	Sleep(590);
+	system("pause");
 	system("cls");
 
 }
@@ -1418,7 +1419,10 @@ int main()
 			}
 			while (op2 != 5);
 			break;
-		case 6: return 0;
+		case 6: 
+			
+			_getch;
+			return 0;
 
 
 		default: cout << "\nINGRESE UNA OPCION VALIDA...\n";
