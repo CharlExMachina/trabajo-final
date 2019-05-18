@@ -6,10 +6,13 @@
 
 */
 
+void Sonido();
+
 #include<iostream>
 #include<cstdlib>
-#include<windows.h> //para poder poner colores xd 
+#include<windows.h> //para poder poner colores y parar el tiempo porque soy bien barbaro xd
 #include<string>
+#include <mmsystem.h>
 
 #define max_char 30
 #define max_doce 12
@@ -141,17 +144,28 @@ void titulo()
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Green);
 	
 	cout << "      _____________________________________________________________________" << endl;
+	Sleep(400);
 	cout << "      |                                   ____________________           ||" << endl;
+	Sleep(400);
 	cout << "      |                                   |        " << "                |Greg#||" << endl;
+	Sleep(400);
 	cout << "      |        -------------------        |                  |           ||" << endl;
+	Sleep(400);
 	cout << "      |        | UAM BIEN BONITA |        |                  |           ||" << endl;
+	Sleep(400);
 	cout << "      |        -------------------        |                  |           ||" << endl;
+	Sleep(400);
 	cout << "      |  ______________###________________|                  |           ||" << endl;
+	Sleep(400);
 	cout << "      |  |  _    _           _    _    _  |    __  ____ _    |   ______  ||" << endl;
+	Sleep(400);
 	cout << "      |  | | |  | |  _____  | |  | |  | | |       ______     |   |  _ |  ||" << endl;
+	Sleep(400);
 	cout << "      |  | |_|  |_|  | | |  |_|  |_|  |_| |       |  | |     |   |  | |  ||" << endl;
+	Sleep(400);
 	cout << "      ___________________________________________________________________  " << endl;
-	cout << "      ____Jonathan Herzing----Paola Rivas----Carlos Eduardo Perez________ " << endl;
+	Sleep(650);
+	cout << "      _____Jonathan Herzig----Paola Rivas----Carlos Eduardo Perez________ " << endl;
 	cout << endl;
 
 	
@@ -1179,6 +1193,11 @@ void mostrar_pedido(Pedido q, int cod)
 	}
 }
 
+void Sonido() 
+{
+	PlaySound(TEXT("WavProyecto.wav"), NULL, SND_ASYNC);
+}
+
 /*---------------------- FUNCION PRINCIPAL ----------------------*/
 int main()
 {
@@ -1191,12 +1210,19 @@ int main()
 	cout << "Inicializando proyecto...\n";
 	Sleep(610);
 	system("cls");
+	Sonido();
 	cout << "\n\n\n\n\t\t\t      //        //  ////////////  ////      ////\n";
+	Sleep(400);
 	cout << "\t\t\t     //        //  //        //  // //    // // \n";
+	Sleep(400);
 	cout << "\t\t\t    //        //  //        //  //  //  //  //  \n";
+	Sleep(400);
 	cout << "\t\t\t   //        //  ////////////  //   ////   //   \n";
+	Sleep(400);
 	cout << "\t\t\t  //        //  //        //  //          //    \n";
+	Sleep(400);
 	cout << "\t\t\t //        //  //        //  //          //     \n";
+	Sleep(400);
 	cout << "\t\t\t////////////  //        //  //          //      \n";
 	Sleep(780);
 	system("cls");
