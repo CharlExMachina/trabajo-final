@@ -144,32 +144,21 @@ void titulo()
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Green);
 	
 	cout << "      _____________________________________________________________________" << endl;
-	Sleep(400);
 	cout << "      |                                   ____________________           ||" << endl;
-	Sleep(400);
 	cout << "      |                                   |        " << "                |Greg#||" << endl;
-	Sleep(400);
 	cout << "      |        -------------------        |                  |           ||" << endl;
-	Sleep(400);
 	cout << "      |        | UAM BIEN BONITA |        |                  |           ||" << endl;
-	Sleep(400);
 	cout << "      |        -------------------        |                  |           ||" << endl;
-	Sleep(400);
 	cout << "      |  ______________###________________|                  |           ||" << endl;
-	Sleep(400);
 	cout << "      |  |  _    _           _    _    _  |    __  ____ _    |   ______  ||" << endl;
-	Sleep(400);
 	cout << "      |  | | |  | |  _____  | |  | |  | | |       ______     |   |  _ |  ||" << endl;
-	Sleep(400);
 	cout << "      |  | |_|  |_|  | | |  |_|  |_|  |_| |       |  | |     |   |  | |  ||" << endl;
-	Sleep(400);
 	cout << "      ___________________________________________________________________  " << endl;
-	Sleep(650);
 	cout << "      _____Jonathan Herzig----Paola Rivas----Carlos Eduardo Perez________ " << endl;
 	cout << endl;
 
 	
-	system("pause");
+	Sleep(590);
 	system("cls");
 
 }
@@ -1208,7 +1197,7 @@ int main()
 	Pedido pedido = nullptr;
 
 	cout << "Inicializando proyecto...\n";
-	Sleep(610);
+	Sleep(1500);
 	system("cls");
 	Sonido();
 	cout << "\n\n\n\n\t\t\t      //        //  ////////////  ////      ////\n";
@@ -1224,9 +1213,8 @@ int main()
 	cout << "\t\t\t //        //  //        //  //          //     \n";
 	Sleep(400);
 	cout << "\t\t\t////////////  //        //  //          //      \n";
-	Sleep(780);
+	Sleep(1000);
 	system("cls");
-
 
 	int op, op2, dato;
 	do
