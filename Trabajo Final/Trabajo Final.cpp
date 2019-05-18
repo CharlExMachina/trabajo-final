@@ -6,7 +6,7 @@
 
 */
 
-void Sonido();
+void Sonido();//sonido de entrada 
 
 #include<iostream>
 #include<cstdlib>
