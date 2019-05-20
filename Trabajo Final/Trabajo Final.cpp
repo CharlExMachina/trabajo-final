@@ -142,7 +142,7 @@ void gotoxy(int x, int y)
 /*-------------------------------  TITULO PRINCIPAL   --------------------------*/
 void titulo()
 {
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Green);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Yellow);
 	
 	cout << "      _____________________________________________________________________" << endl;
 	cout << "      |                                   ____________________           ||" << endl;
