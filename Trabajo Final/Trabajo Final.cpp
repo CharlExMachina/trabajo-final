@@ -498,14 +498,14 @@ void actualizar_cliente(Cliente& cliente, int cod)
 			system("cls");
 			cout << "\n\n\t\t[  MODIFICAR CLIENTE ]\n";
 			cout << "\t\t------------------------";
-			cout << "\n\n\tCODIGO :" << cliente->codCliente;
-			cout << "\n\n\tNOMBRE :" << cliente->nomCliente;
-			cout << "\n\n\tAPELLIDOS :" << cliente->apellCliente;
-			cout << "\n\n\tDNI :" << cliente->dniCliente;
-			cout << "\n\n\tRUC :" << cliente->rucCliente;
-			cout << "\n\n\tTELEFONO :" << cliente->telefono;
-			cout << "\n\n\tDIRECCION :" << cliente->direccion;
-			cout << "\n\n\tE-MAIL :" << cliente->email;
+			cout << "\n\n\tCodigo::: " << cliente->codCliente;
+			cout << "\n\n\tNombre::: " << cliente->nomCliente;
+			cout << "\n\n\tApellidos::: :" << cliente->apellCliente;
+			cout << "\n\n\tDNI::: " << cliente->dniCliente;//se habla de una cedula en otros  paises es reconocido asi 
+			cout << "\n\n\tRUC::: " << cliente->rucCliente;
+			cout << "\n\n\tTelefono:::  " << cliente->telefono;
+			cout << "\n\n\tDireccion::: " << cliente->direccion;
+			cout << "\n\n\tE-MAIL::: " << cliente->email;
 
 
 			menu_actualizar_cliente();
