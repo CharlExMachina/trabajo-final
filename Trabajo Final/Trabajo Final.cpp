@@ -413,7 +413,7 @@ void registrar_producto(Linea arbol, int cod)
 		if (arbol->codLinea == cod)
 		{
 			int x;
-			cout << "\n\n\t\t[  REGISTRO DE PRODUCTO ]\n";
+			cout << "\n\n\t\t<<<< REGISTRO DE PRODUCTO >>>>\n";
 			cout << "\t\t------------------------";
 			cout << "\n\tCODIGO:";
 			cin >> x;
