@@ -416,9 +416,10 @@ void registrar_producto(Linea arbol, int cod)
 			cout << "\n\n\t\t<<<< REGISTRO DE PRODUCTO >>>>\n";
 			cout << "\t\t------------------------";
 			cout << "\n\tDigite el codigo del nuevo producto: ";
+
 			while (!(cin >> codigo_producto))
 			{
-				cout << "Entrada invalda. Intente nuevamente, gracias. " << endl;
+				cout << "Entrada invalida. Intente nuevamente, gracias. " << endl;
 				cout << "\n\t~~~ Precio ~~~ : ";
 			}
 			insertar_producto(arbol->enlace, codigo_producto);
@@ -624,7 +625,6 @@ bool validar_codigo_producto(Linea arbol, int codlinea, int codprod, Producto& p
 /*------- Funcion que agrega un producto a la boleta de venta --------*/
 void insertar_producto_venta(DetalleVenta& q, Linea arbol)
 {
-	bool validado;
 	int codLinea, x;
 	char op;
 
@@ -633,7 +633,8 @@ void insertar_producto_venta(DetalleVenta& q, Linea arbol)
 	cout << "\n\tCODIGO:";
 	cin >> r->codigo;
 	r->ptrProducto = nullptr;
-	validado = false;
+	bool validado;
+	
 	do
 	{
 		cout << "\n\tINGRESE LINEA DEL PRODUCTO: ";
@@ -641,12 +642,12 @@ void insertar_producto_venta(DetalleVenta& q, Linea arbol)
 		cout << "\n\tCODIGO DE PRODUCTO:";
 		cin >> x;
 		validado = validar_codigo_producto(arbol, codLinea, x, r->ptrProducto);
-		if (validado == true)
+		if (validado)
 		{
 			cout << "\n\t NOMBRE :" << (r->ptrProducto)->nomProd;
 			cout << "\n\t PRECIO :" << (r->ptrProducto)->precio;
 		}
-		if (validado == false)
+		if (!validado)
 		{
 			cout << "\n\tCODIGO INVALIDO...!!";
 		}
@@ -665,7 +666,7 @@ void insertar_producto_venta(DetalleVenta& q, Linea arbol)
 		default: cout << "\n\t Ingrese una opcion valida";
 		}
 	}
-	while (validado == false);
+	while (!validado);
 	r->codProd = x;
 	cout << "\n\tCANTIDAD:";
 	cin >> r->cantidad;
