@@ -625,8 +625,8 @@ bool validar_codigo_producto(Linea arbol, int codlinea, int codprod, Producto& p
 void insertar_producto_venta(DetalleVenta& detalle_venta, Linea arbol)
 {
 	// TODO: Continuar esto
-	int codigo_linea = 0;
-	int codigo_producto = 0;
+	int codigo_linea;
+	int codigo_producto;
 	char opcion;
 
 	DetalleVenta r = new(struct nodoDetalleVenta);
@@ -675,8 +675,9 @@ void insertar_producto_venta(DetalleVenta& detalle_venta, Linea arbol)
 	}
 	while (!validado);
 	r->codProd = codigo_producto;
-	cout << "\n\tCANTIDAD:";
-	cin >> r->cantidad;
+	r->cantidad = validar_numerico(
+		"Entrada invalida. La cantidad no puede ser un valor negativo o contener letras. Intente nuevamente",
+		"\n\tCANTIDAD:");
 
 	strcpy_s(r->marca, (r->ptrProducto)->nombre_producto);
 
