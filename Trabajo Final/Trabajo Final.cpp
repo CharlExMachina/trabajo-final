@@ -30,7 +30,7 @@ using namespace std;
 /*------ estructura para productos por cada linea ------*/
 struct nodoProducto
 {
-	int codProd;
+	int codigo_producto;
 	char nombre_producto[max_char];
 	float precio;
 	struct nodoProducto *izq, *der;
@@ -389,30 +389,22 @@ void insertar_producto(Producto& producto, int codigoProducto)
 	if (producto == nullptr)
 	{
 		producto = new(struct nodoProducto);
-		producto->codProd = codigoProducto;
+		producto->codigo_producto = codigoProducto;
 		cin.ignore();
+
 		cout << "\n\t>>~~~ Nombre :";
 		cin.getline(producto->nombre_producto, max_char);
-		//cout << "\n\t~~~ Precio :";
-
-		// TODO: Terminar esto
-		auto precio = 0;
+		
 		producto->precio = validar_numerico(
-			precio,
+			producto->precio,
 			"Entrada invalida. No puede ser un numero negativo o un valor no numerico, favor intentar nuevamente",
 			"\n\t~~~ Precio :");
-
-		/*while (!(cin >> producto->precio))
-		{
-			cout << "Entrada invalda. Intente nuevamente, gracias. " << endl;
-			cout << "\n\t~~~ Precio ~~~ : ";
-		}*/
 
 		producto->izq = nullptr;
 		producto->der = nullptr;
 	}
-	else if (codigoProducto < producto->codProd) insertar_producto(producto->izq, codigoProducto);
-	else if (codigoProducto > producto->codProd) insertar_producto(producto->der, codigoProducto);
+	else if (codigoProducto < producto->codigo_producto) insertar_producto(producto->izq, codigoProducto);
+	else if (codigoProducto > producto->codigo_producto) insertar_producto(producto->der, codigoProducto);
 }
 
 /*---Funcion que busca el codigo de linea para agregar en el, el producto ingresaro  ----*/
@@ -422,17 +414,13 @@ void registrar_producto(Linea arbol, int cod)
 	{
 		if (arbol->codLinea == cod)
 		{
-			int codigo_producto;
+			int codigo_producto = 0;
 			cout << "\n\n\t\t<<<< REGISTRO DE PRODUCTO >>>>\n";
 			cout << "\t\t------------------------";
-			cout << "\n\tDigite el codigo del nuevo producto: ";
 
-			// TODO: Hacer una funcion para validar automaticamente entradas numericas
-			while (!(cin >> codigo_producto))
-			{
-				cout << "Entrada invalida. Intente nuevamente, gracias. " << endl;
-				cout << "\n\t~~~ Codigo del nuevo producto ~~~ : ";
-			}
+			codigo_producto = validar_numerico(codigo_producto,
+				"Entrada invalida. El codigo no puede ser negativo o contener letras. Intentar nuevamente",
+				"\n\tDigite el codigo del nuevo producto: ");
 
 			insertar_producto(arbol->enlace, codigo_producto);
 		}
@@ -447,7 +435,7 @@ void listar_productos(Producto q)
 	if (q != nullptr)
 	{
 		listar_productos(q->izq);
-		cout << "\t" << q->codProd << "\t" << q->nombre_producto << "\t" << q->precio << endl;
+		cout << "\t" << q->codigo_producto << "\t" << q->nombre_producto << "\t" << q->precio << endl;
 		listar_productos(q->der);
 	}
 }
@@ -605,14 +593,14 @@ bool validar_cod_producto(Producto producto, int codprod, Producto& puntProducto
 {
 	if (producto != nullptr)
 	{
-		if (producto->codProd == codprod)
+		if (producto->codigo_producto == codprod)
 		{
 			puntProducto = producto;
 			return true;
 		}
 
-		else if (codprod < producto->codProd) validar_cod_producto(producto->izq, codprod, puntProducto);
-		else if (codprod > producto->codProd) validar_cod_producto(producto->der, codprod, puntProducto);
+		else if (codprod < producto->codigo_producto) validar_cod_producto(producto->izq, codprod, puntProducto);
+		else if (codprod > producto->codigo_producto) validar_cod_producto(producto->der, codprod, puntProducto);
 	}
 }
 
