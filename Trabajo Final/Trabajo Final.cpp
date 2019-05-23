@@ -1363,8 +1363,7 @@ int main()
 					break;
 				case 3: cout << "\n\n\t\t[    DETALLES DE VENTA    ]\n";
 					cout << "\t\t------------------------\n";
-					cout << "\n\tIngrese codigo de venta:";
-					cin >> dato;
+					dato = validar_numerico("Entrada invalida. Intente nuevamente", "\n\tIngrese codigo de venta:");
 					mostrar_venta(venta, dato);
 					break;
 
