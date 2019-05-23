@@ -6,7 +6,7 @@
 
 */
 
-void Sonido();//sonido de entrada 
+void Sonido(); //sonido de entrada 
 
 #include<iostream>
 #include<cstdlib>
@@ -127,6 +127,10 @@ typedef struct nodoProveedor* Proveedor;
 typedef struct nodoPedido* Pedido;
 typedef struct nodoDetallePedido* DetallePedido;
 
+// TODO: Prototipar todas las funciones del archivo para evitar errores de referencia u ordenamiento
+
+int validar_numerico(int numero_a_validar, const string mensaje_error, const string& mensaje_pregunta);
+
 
 /*--------------------Funcion gotoxy -------------------*/
 void gotoxy(int x, int y)
@@ -143,7 +147,7 @@ void gotoxy(int x, int y)
 void titulo()
 {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Yellow);
-	
+
 	cout << "      _____________________________________________________________________" << endl;
 	cout << "      |                                   ____________________           ||" << endl;
 	cout << "      |                                   |        " << "                |Greg#||" << endl;
@@ -158,17 +162,16 @@ void titulo()
 	cout << "      _____Jonathan Herzig----Paola Rivas----Carlos Eduardo Perez________ " << endl;
 	cout << endl;
 
-	
+
 	system("pause");
 	system("cls");
-
 }
 
 
 /*---------------------- MENU PRINCIPAL ----------------------*/
 void menu1()
 {
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Blue); 
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Blue);
 	cout << "      ---------------------------------------------------------------------\n";
 	cout << "              <<<<<<<<<<       SISTEMA DE ALMACEN        >>>>>>>>>>";
 	cout << "\n      -------------------------------------------------------------------\n\n";
@@ -230,7 +233,7 @@ void menu3()
 	cout << "      3--LISTAR CLIENTES             //       //  //       // //         //     " << endl;
 	cout << "                                    //       //  //       // //         //      " << endl;
 	cout << "      5-- REGRESAR                 ///////////  //       // //         //       " << endl;
-	
+
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Red);
 	cout << "                                  INFORMATICA - ESTRUCTURA DE DATOS" << endl; //SALIR DEL PROGRAMA
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Yellow);
@@ -257,7 +260,7 @@ void menu_actualizar_cliente()
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Red);
 	cout << "                                  INFORMATICA - ESTRUCTURA DE DATOS" << endl; //SALIR DEL PROGRAMA
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Yellow);
-	cout << "     << Ingrese Opcion >>  "; 
+	cout << "     << Ingrese Opcion >>  ";
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Def);
 }
 
@@ -390,13 +393,20 @@ void insertar_producto(Producto& producto, int codigoProducto)
 		cin.ignore();
 		cout << "\n\t>>~~~ Nombre :";
 		cin.getline(producto->nombre_producto, max_char);
-		cout << "\n\t~~~ Precio :";
-		
-		while (!(cin >> producto->precio))
+		//cout << "\n\t~~~ Precio :";
+
+		// TODO: Terminar esto
+		auto precio = 0;
+		producto->precio = validar_numerico(
+			precio,
+			"Entrada invalida. No puede ser un numero negativo o un valor no numerico, favor intentar nuevamente",
+			"\n\t~~~ Precio :");
+
+		/*while (!(cin >> producto->precio))
 		{
 			cout << "Entrada invalda. Intente nuevamente, gracias. " << endl;
 			cout << "\n\t~~~ Precio ~~~ : ";
-		}
+		}*/
 
 		producto->izq = nullptr;
 		producto->der = nullptr;
@@ -508,7 +518,7 @@ void actualizar_cliente(Cliente& cliente, int cod)
 			cout << "\n\n\tCodigo::: " << cliente->codCliente;
 			cout << "\n\n\tNombre::: " << cliente->nomCliente;
 			cout << "\n\n\tApellidos::: :" << cliente->apellCliente;
-			cout << "\n\n\tDNI::: " << cliente->dniCliente;//se habla de una cedula en otros  paises es reconocido asi 
+			cout << "\n\n\tDNI::: " << cliente->dniCliente; //se habla de una cedula en otros  paises es reconocido asi 
 			cout << "\n\n\tRUC::: " << cliente->rucCliente;
 			cout << "\n\n\tTelefono:::  " << cliente->telefono;
 			cout << "\n\n\tDireccion::: " << cliente->direccion;
@@ -638,7 +648,7 @@ void insertar_producto_venta(DetalleVenta& detalle_venta, Linea arbol)
 	cin >> r->codigo;
 	r->ptrProducto = nullptr;
 	bool validado;
-	
+
 	do
 	{
 		cout << "\n\t~~~Digite la linea del producto a insertar: ";
@@ -737,10 +747,11 @@ void registrar_venta(Venta& venta, Cliente cliente, Linea arbol)
 		cout << "\n\t~~~ Codigo de venta ~~~ : ";
 	}
 	cin.ignore();
-	cout << "\n\t~~~Fecha: "; // TODO: Intentar implementarla de la misma forma en la que lo hice en el pasado trabajo final
+	cout << "\n\t~~~Fecha: ";
+	// TODO: Intentar implementarla de la misma forma en la que lo hice en el pasado trabajo final
 	cin.getline(nueva_venta->fecha, max_doce);
 	bool validado;
-	
+
 	do
 	{
 		cout << "\n\tCODIGO DE CLIENTE:";
@@ -1196,9 +1207,31 @@ void mostrar_pedido(Pedido q, int cod)
 	}
 }
 
-void Sonido() 
+void Sonido()
 {
 	PlaySound(TEXT("WavProyecto.wav"), NULL, SND_ASYNC);
+}
+
+int validar_numerico(int numero_a_validar, const string mensaje_error, const string& mensaje_pregunta)
+{
+	cout << mensaje_pregunta;
+
+	while (true)
+	{
+		if (cin >> numero_a_validar)
+		{
+			if (numero_a_validar > 0)
+			{
+				break;
+			}
+		}
+
+		cout << mensaje_error << endl;
+		cin.clear();
+		cin.ignore(9999, '\n');
+	}
+
+	return numero_a_validar;
 }
 
 /*---------------------- FUNCION PRINCIPAL ----------------------*/
@@ -1432,8 +1465,8 @@ int main()
 			}
 			while (op2 != 5);
 			break;
-		case 6: 
-			
+		case 6:
+
 			_getch;
 			return 0;
 
