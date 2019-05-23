@@ -129,7 +129,7 @@ typedef struct nodoDetallePedido* DetallePedido;
 
 // TODO: Prototipar todas las funciones del archivo para evitar errores de referencia u ordenamiento
 
-int validar_numerico(int numero_a_validar, const string mensaje_error, const string& mensaje_pregunta);
+int validar_numerico(const string mensaje_error, const string& mensaje_pregunta);
 
 
 /*--------------------Funcion gotoxy -------------------*/
@@ -396,7 +396,6 @@ void insertar_producto(Producto& producto, int codigoProducto)
 		cin.getline(producto->nombre_producto, max_char);
 		
 		producto->precio = validar_numerico(
-			producto->precio,
 			"Entrada invalida. No puede ser un numero negativo o un valor no numerico, favor intentar nuevamente",
 			"\n\t~~~ Precio :");
 
@@ -418,7 +417,7 @@ void registrar_producto(Linea arbol, int cod)
 			cout << "\n\n\t\t<<<< REGISTRO DE PRODUCTO >>>>\n";
 			cout << "\t\t------------------------";
 
-			codigo_producto = validar_numerico(codigo_producto,
+			codigo_producto = validar_numerico(
 				"Entrada invalida. El codigo no puede ser negativo o contener letras. Intentar nuevamente",
 				"\n\tDigite el codigo del nuevo producto: ");
 
@@ -626,23 +625,29 @@ bool validar_codigo_producto(Linea arbol, int codlinea, int codprod, Producto& p
 void insertar_producto_venta(DetalleVenta& detalle_venta, Linea arbol)
 {
 	// TODO: Continuar esto
-	int codigo_linea;
-	int codigo_producto;
+	int codigo_linea = 0;
+	int codigo_producto = 0;
 	char opcion;
 
 	DetalleVenta r = new(struct nodoDetalleVenta);
 
-	cout << "\n\tCODIGO:";
-	cin >> r->codigo;
+	r->codigo = validar_numerico(
+		"Entrada invalida. El codigo no puede ser un valor negativo o contener letras. Intente nuevamente",
+		"~~~CODIGO: ");
 	r->ptrProducto = nullptr;
 	bool validado;
 
 	do
 	{
-		cout << "\n\t~~~Digite la linea del producto a insertar: ";
-		cin >> codigo_linea;
-		cout << "\n\tCODIGO DE PRODUCTO:";
-		cin >> codigo_producto;
+		codigo_linea = validar_numerico(
+			"Entrada invalida. La linea de producto no puede ser un valor negativo o contener letras. Intente nuevamente",
+			"\n\t~~~Digite la linea del producto a insertar: ");
+
+		
+		codigo_producto = validar_numerico(
+			"Entrada invalida. El codigo de producto no puede ser un valor negativo o contener letras. Intente nuevamente",
+			"\n\t~~~Codigo de producto: ");
+
 		validado = validar_codigo_producto(arbol, codigo_linea, codigo_producto, r->ptrProducto);
 		if (validado)
 		{
@@ -1200,8 +1205,10 @@ void Sonido()
 	PlaySound(TEXT("WavProyecto.wav"), NULL, SND_ASYNC);
 }
 
-int validar_numerico(int numero_a_validar, const string mensaje_error, const string& mensaje_pregunta)
+int validar_numerico(const string mensaje_error, const string& mensaje_pregunta)
 {
+	int numero_a_validar;
+
 	cout << mensaje_pregunta;
 
 	while (true)
