@@ -1318,15 +1318,13 @@ int main()
 				{
 				case 1: cout << "\n\n\t\t[  REGISTRO DE CLIENTE ]\n";
 					cout << "\t\t------------------------\n";
-					cout << "\n\tCodigo de cliente:";
-					cin >> dato;
+					dato = validar_numerico("Entrada invalida. Intente nuevamente", "\n\tCodigo de cliente:");
 					registrar_cliente(cliente, dato);
 					break;
 
 				case 2: cout << "\n\n\t\t[  ACTUALIZAR CLIENTE ]\n";
 					cout << "\t\t------------------------\n";
-					cout << "\n\tCodigo de cliente:";
-					cin >> dato;
+					dato = validar_numerico("Entrada invalida. Intente nuevamente", "\n\tCodigo de cliente:");
 					actualizar_cliente(cliente, dato);
 					break;
 
