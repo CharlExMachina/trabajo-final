@@ -380,29 +380,29 @@ void mostrar_linea(Linea arbol)
 }
 
 /*------------ Funcion que inserta un nuevo producto a la linea ---------------------*/
-void insertar_producto(Producto& q, int x)
+void insertar_producto(Producto& producto, int codigoProducto)
 {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Color_Red);
-	if (q == nullptr)
+	if (producto == nullptr)
 	{
-		q = new(struct nodoProducto);
-		q->codProd = x;
+		producto = new(struct nodoProducto);
+		producto->codProd = codigoProducto;
 		cin.ignore();
-		cout << "\n\t>> Nombre :";
-		cin.getline(q->nomProd, max_char);
-		cout << "\n\t>> Precio :";
-		// TODO: Seguir trabajando en esta validaci�n
-		while (!(cin >> q->precio))
+		cout << "\n\t>>~~~ Nombre :";
+		cin.getline(producto->nomProd, max_char);
+		cout << "\n\t~~~ Precio :";
+		
+		while (!(cin >> producto->precio))
 		{
 			cout << "Entrada invalda. Intente nuevamente, gracias. " << endl;
 			cout << "\n\t~~~ Precio ~~~ : ";
 		}
-		cin >> q->precio;
-		q->izq = nullptr;
-		q->der = nullptr;
+
+		producto->izq = nullptr;
+		producto->der = nullptr;
 	}
-	else if (x < q->codProd) insertar_producto(q->izq, x);
-	else if (x > q->codProd) insertar_producto(q->der, x);
+	else if (codigoProducto < producto->codProd) insertar_producto(producto->izq, codigoProducto);
+	else if (codigoProducto > producto->codProd) insertar_producto(producto->der, codigoProducto);
 }
 
 /*---Funcion que busca el codigo de linea para agregar en el, el producto ingresaro  ----*/
@@ -412,12 +412,16 @@ void registrar_producto(Linea arbol, int cod)
 	{
 		if (arbol->codLinea == cod)
 		{
-			int x;
+			int codigo_producto;
 			cout << "\n\n\t\t<<<< REGISTRO DE PRODUCTO >>>>\n";
 			cout << "\t\t------------------------";
-			cout << "\n\tCODIGO:";
-			cin >> x;
-			insertar_producto(arbol->enlace, x);
+			cout << "\n\tDigite el codigo del nuevo producto: ";
+			while (!(cin >> codigo_producto))
+			{
+				cout << "Entrada invalda. Intente nuevamente, gracias. " << endl;
+				cout << "\n\t~~~ Precio ~~~ : ";
+			}
+			insertar_producto(arbol->enlace, codigo_producto);
 		}
 		else if (cod < arbol->codLinea) registrar_producto(arbol->izq, cod);
 		else if (cod > arbol->codLinea) registrar_producto(arbol->der, cod);
