@@ -1423,7 +1423,7 @@ int main()
 			do
 			{
 				menu6();
-				cin >> opcion2;
+				opcion2 = validar_numerico("Entrada invalida. Intente nuevamente", "");
 
 				switch (opcion2)
 				{
@@ -1438,7 +1438,7 @@ int main()
 				case 3: cout << "\n\n\t\t[------DETALLES DE PEDIDO-----~]\n";
 					cout << "\t\t------------------------\n";
 					cout << "\n\tIngrese codigo de pedido:";
-					cin >> dato;
+					dato = validar_numerico("Entrada invalida. Intente nuevamente", "");
 					mostrar_pedido(pedido, dato);
 					break;
 
