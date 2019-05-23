@@ -498,7 +498,7 @@ void actualizar_cliente(Cliente& cliente, int cod)
 	{
 		if (cliente->codCliente == cod)
 		{
-			int op;
+			int opcion;
 			system("cls");
 			cout << "\n\n\t\t[  MODIFICAR CLIENTE ]\n";
 			cout << "\t\t------------------------";
@@ -513,8 +513,9 @@ void actualizar_cliente(Cliente& cliente, int cod)
 
 
 			menu_actualizar_cliente();
-			cin >> op;
-			switch (op)
+			opcion = validar_numerico("Entrada invalida. Intente nuevamente", "");
+
+			switch (opcion)
 			{
 			case 1: cin.ignore();
 				cout << "\n\tINGRESE NUEVO NOMBRE :";
@@ -733,14 +734,10 @@ void registrar_venta(Venta& venta, Cliente cliente, Linea arbol)
 	Venta nueva_venta = new(struct nodoVenta);
 	cout << "\n\n\t\t[    BOLETA DE VENTAS   ]\n";
 	cout << "\t\t------------------------";
-	cout << "\n\t~~~Codigo de venta: ";
 
-	while (!(cin >> nueva_venta->codigo))
-	{
-		cout << "Entrada invalda. Intente nuevamente, gracias. " << endl;
-		cout << "\n\t~~~ Codigo de venta ~~~ : ";
-	}
+	nueva_venta->codigo = validar_numerico("Entrada invalida. Intente nuevamente", "\n\t~~~Codigo de venta: ");
 	cin.ignore();
+
 	cout << "\n\t~~~Fecha: ";
 	// TODO: Intentar implementarla de la misma forma en la que lo hice en el pasado trabajo final
 	cin.getline(nueva_venta->fecha, max_doce);
@@ -891,7 +888,6 @@ void actualizar_proveedor(Proveedor& proveedor, int cod)
 	{
 		if (proveedor->codProveedor == cod)
 		{
-			int op;
 			system("cls");
 			cout << "\n\n\t\t[  MODIFICAR CLIENTE ]\n";
 			cout << "\t\t------------------------";
@@ -906,13 +902,9 @@ void actualizar_proveedor(Proveedor& proveedor, int cod)
 
 			menu_actualizar_proveedor();
 
-			while (!(cin >> op))
-			{
-				cout << "Entrada invalida. Por favor intentar nuevamente" << endl;
-				cout << "Ingrese el numero de opcion a la que desea acceder: ";
-			}
+			int opcion = validar_numerico("Entrada invalida. Intente nuevamente", "Seleccion: ");
 
-			switch (op)
+			switch (opcion)
 			{
 			case 1: cin.ignore();
 				cout << "\n\tINGRESE NUEVA RAZON SOCIAL :";
@@ -994,7 +986,7 @@ void insertar_producto_pedido(DetallePedido& q, Linea arbol)
 {
 	bool validado;
 	int codLinea, x;
-	char op;
+	char opcion;
 
 	DetallePedido t, r;
 	r = new(struct nodoDetallePedido);
@@ -1017,8 +1009,8 @@ void insertar_producto_pedido(DetallePedido& q, Linea arbol)
 		if (validado == false)
 			cout << "\n\tCODIGO INVALIDO...!!";
 		cout << "\n\n\tDesea continuar  ? <y/n>: ";
-		cin >> op;
-		switch (op)
+		cin >> opcion;
+		switch (opcion)
 		{
 		case 'y': break;
 
@@ -1057,15 +1049,15 @@ void insertar_producto_pedido(DetallePedido& q, Linea arbol)
 /*------- Funcion que ordena agregar la cantidad de productos deseados al detalle del pedido  --------*/
 void detalle_de_pedido(DetallePedido& detalle, Linea arbol, Pedido& pedido)
 {
-	char op;
+	char opcion;
 	cout << "\n\n\t\t[    LISTA DE PRODUCTOS A PEDIR  ]\n";
 	cout << "\t\t-------------------------------";
 	do
 	{
 		insertar_producto_pedido(detalle, arbol);
 		cout << "\n\n\tDesea agregar otro producto a la Proforma ? <y/n>: ";
-		cin >> op;
-		switch (op)
+		cin >> opcion;
+		switch (opcion)
 		{
 		case 'y': break;
 
@@ -1078,7 +1070,7 @@ void detalle_de_pedido(DetallePedido& detalle, Linea arbol, Pedido& pedido)
 		default: cout << "\n\t Ingrese una opcion valida";
 		}
 	}
-	while (op == 'y' || op == 'Y');
+	while (opcion == 'y' || opcion == 'Y');
 }
 
 /*------- Funcion que retorna true cuando el codigo es valido  --------*/
@@ -1100,7 +1092,7 @@ bool validar_codigo_proveedor(Proveedor proveedor, int cod, Proveedor& ptrProvee
 void registrar_pedido(Pedido& pedido, Proveedor proveedor, Linea arbol)
 {
 	int x;
-	char op;
+	char opcion;
 	float total = 0;
 	bool validado;
 	Pedido q, t;
@@ -1125,8 +1117,8 @@ void registrar_pedido(Pedido& pedido, Proveedor proveedor, Linea arbol)
 		if (validado == false)
 			cout << "\n\tCODIGO INVALIDO...!!";
 		cout << "\n\n\tDesea continuar con el registro de Pedido ? <y/n>: ";
-		cin >> op;
-		switch (op)
+		cin >> opcion;
+		switch (opcion)
 		{
 		case 'y': break;
 
