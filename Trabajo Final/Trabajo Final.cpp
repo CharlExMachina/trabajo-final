@@ -1264,7 +1264,7 @@ int main()
 	{
 		titulo();
 		menu1();
-		cin >> op;
+		op = validar_numerico("Entrada invalida. Intente nuevamente", "");
 
 		switch (op)
 		{
@@ -1272,9 +1272,8 @@ int main()
 		case 1: system("cls");
 			do
 			{
-				titulo();
 				menu2();
-				cin >> op2;
+				op2 = validar_numerico("Entrada invalida. Intente nuevamente", "");
 
 				switch (op2)
 				{
@@ -1312,7 +1311,6 @@ int main()
 		case 2: system("cls");
 			do
 			{
-				titulo();
 				menu3();
 				cin >> op2;
 
@@ -1353,7 +1351,6 @@ int main()
 		case 3: system("cls");
 			do
 			{
-				titulo();
 				menu4();
 				cin >> op2;
 
@@ -1388,7 +1385,6 @@ int main()
 		case 4: system("cls");
 			do
 			{
-				titulo();
 				menu5();
 				cin >> op2;
 
@@ -1429,7 +1425,6 @@ int main()
 		case 5: system("cls");
 			do
 			{
-				titulo();
 				menu6();
 				cin >> op2;
 
