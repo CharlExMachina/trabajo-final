@@ -1259,7 +1259,7 @@ int main()
 	Sleep(1000);
 	system("cls");
 
-	int op, op2, dato;
+	int op, opcion2, dato;
 	do
 	{
 		titulo();
@@ -1273,9 +1273,9 @@ int main()
 			do
 			{
 				menu2();
-				op2 = validar_numerico("Entrada invalida. Intente nuevamente", "");
+				opcion2 = validar_numerico("Entrada invalida. Intente nuevamente", "");
 
-				switch (op2)
+				switch (opcion2)
 				{
 				case 1:
 					dato = validar_numerico("Entrada invalida. Intente nuevamente", "\nIngrese codigo de linea: ");
@@ -1304,7 +1304,7 @@ int main()
 				system("pause");
 				system("cls");
 			}
-			while (op2 != 5);
+			while (opcion2 != 5);
 			break;
 
 			/*-------------  CLIENTES ---------------*/
@@ -1312,9 +1312,9 @@ int main()
 			do
 			{
 				menu3();
-				cin >> op2;
+				cin >> opcion2;
 
-				switch (op2)
+				switch (opcion2)
 				{
 				case 1: cout << "\n\n\t\t[  REGISTRO DE CLIENTE ]\n";
 					cout << "\t\t------------------------\n";
@@ -1342,7 +1342,7 @@ int main()
 				system("pause");
 				system("cls");
 			}
-			while (op2 != 5);
+			while (opcion2 != 5);
 			break;
 
 			/*-------------  VENTAS ---------------*/
@@ -1350,9 +1350,9 @@ int main()
 			do
 			{
 				menu4();
-				cin >> op2;
+				cin >> opcion2;
 
-				switch (op2)
+				switch (opcion2)
 				{
 				case 1: registrar_venta(venta, cliente, arbol);
 					break;
@@ -1376,28 +1376,28 @@ int main()
 				system("pause");
 				system("cls");
 			}
-			while (op2 != 5);
+			while (opcion2 != 5);
 			break;
 			/*-------------  PROVEEDOR ---------------*/
 		case 4: system("cls");
 			do
 			{
 				menu5();
-				cin >> op2;
+				opcion2 = validar_numerico("Entrada invalida. Intente nuevamente", "");
 
-				switch (op2)
+				switch (opcion2)
 				{
 				case 1: cout << "\n\n\t\t[  REGISTRO DE PROVEEDOR ]\n";
 					cout << "\t\t------------------------\n";
 					cout << "\n\tCodigo de Proveedor:";
-					cin >> dato;
+					dato = validar_numerico("Entrada invalida. Intente nuevamente", "");
 					registrar_proveedor(proveedor, dato);
 					break;
 
 				case 2: cout << "\n\n\t\t[  ACTUALIZAR PROVEEDOR ]\n";
 					cout << "\t\t------------------------\n";
 					cout << "\n\tCodigo de Proveedor:";
-					cin >> dato;
+					dato = validar_numerico("Entrada invalida. Intente nuevamente", "");
 					actualizar_proveedor(proveedor, dato);
 					break;
 
@@ -1415,7 +1415,7 @@ int main()
 				system("pause");
 				system("cls");
 			}
-			while (op2 != 5);
+			while (opcion2 != 5);
 			break;
 
 			/*-------------  PEDIDOS ---------------*/
@@ -1423,9 +1423,9 @@ int main()
 			do
 			{
 				menu6();
-				cin >> op2;
+				cin >> opcion2;
 
-				switch (op2)
+				switch (opcion2)
 				{
 				case 1: registrar_pedido(pedido, proveedor, arbol);
 					break;
@@ -1451,7 +1451,7 @@ int main()
 				system("pause");
 				system("cls");
 			}
-			while (op2 != 5);
+			while (opcion2 != 5);
 			break;
 		case 6:
 
