@@ -1277,27 +1277,27 @@ int main()
 
 				switch (op2)
 				{
-				case 1: cout << "\nIngrese codigo de linea:";
-					cin >> dato;
+				case 1:
+					dato = validar_numerico("Entrada invalida. Intente nuevamente", "\nIngrese codigo de linea: ");
 					insertar_linea(arbol, dato);
 					break;
 
 				case 2: mostrar_linea(arbol);
 					break;
 
-				case 3: cout << "\nIngrese codigo de Linea del Producto:";
-					cin >> dato;
+				case 3:
+					dato = validar_numerico("Entrada invalida. Intente nuevamente", "\nIngrese codigo de Linea del Producto: ");
 					registrar_producto(arbol, dato);
 					break;
 
-				case 4: cout << "\nIngrese codigo de Linea del Producto:";
-					cin >> dato;
+				case 4:
+					dato = validar_numerico("Entrada invalida. Intente nuevamente", "\nIngrese codigo de Linea del Producto: ");
 					mostrar_producto(arbol, dato);
 					break;
 
 				case 5: break;
 
-				default: cout << "\nINGRESE UNA OPCION VALIDA...\n";
+				default: cout << "\nOpcion invalida. Intente nuevamente.\n";
 					break;
 				}
 				cout << endl;
