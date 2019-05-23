@@ -31,7 +31,7 @@ using namespace std;
 struct nodoProducto
 {
 	int codProd;
-	char nomProd[max_char];
+	char nombre_producto[max_char];
 	float precio;
 	struct nodoProducto *izq, *der;
 };
@@ -68,7 +68,7 @@ struct nodoDetalleVenta
 	char marca[max_char];
 	float subtotal;
 	struct nodoProducto* ptrProducto;
-	struct nodoDetalleVenta* sgte;
+	struct nodoDetalleVenta* siguiente;
 };
 
 struct nodoVenta
@@ -79,7 +79,7 @@ struct nodoVenta
 	int codCliente;
 	struct nodoCliente* ptrCliente;
 	struct nodoDetalleVenta* detalle;
-	struct nodoVenta* sgte;
+	struct nodoVenta* siguiente;
 };
 
 struct nodoProveedor
@@ -389,7 +389,7 @@ void insertar_producto(Producto& producto, int codigoProducto)
 		producto->codProd = codigoProducto;
 		cin.ignore();
 		cout << "\n\t>>~~~ Nombre :";
-		cin.getline(producto->nomProd, max_char);
+		cin.getline(producto->nombre_producto, max_char);
 		cout << "\n\t~~~ Precio :";
 		
 		while (!(cin >> producto->precio))
@@ -417,11 +417,13 @@ void registrar_producto(Linea arbol, int cod)
 			cout << "\t\t------------------------";
 			cout << "\n\tDigite el codigo del nuevo producto: ";
 
+			// TODO: Hacer una funcion para validar automaticamente entradas numericas
 			while (!(cin >> codigo_producto))
 			{
 				cout << "Entrada invalida. Intente nuevamente, gracias. " << endl;
-				cout << "\n\t~~~ Precio ~~~ : ";
+				cout << "\n\t~~~ Codigo del nuevo producto ~~~ : ";
 			}
+
 			insertar_producto(arbol->enlace, codigo_producto);
 		}
 		else if (cod < arbol->codLinea) registrar_producto(arbol->izq, cod);
@@ -435,7 +437,7 @@ void listar_productos(Producto q)
 	if (q != nullptr)
 	{
 		listar_productos(q->izq);
-		cout << "\t" << q->codProd << "\t" << q->nomProd << "\t" << q->precio << endl;
+		cout << "\t" << q->codProd << "\t" << q->nombre_producto << "\t" << q->precio << endl;
 		listar_productos(q->der);
 	}
 }
@@ -623,13 +625,15 @@ bool validar_codigo_producto(Linea arbol, int codlinea, int codprod, Producto& p
 }
 
 /*------- Funcion que agrega un producto a la boleta de venta --------*/
-void insertar_producto_venta(DetalleVenta& q, Linea arbol)
+void insertar_producto_venta(DetalleVenta& detalle_venta, Linea arbol)
 {
-	int codLinea, x;
-	char op;
+	// TODO: Continuar esto
+	int codigo_linea;
+	int codigo_producto;
+	char opcion;
 
-	DetalleVenta t, r;
-	r = new(struct nodoDetalleVenta);
+	DetalleVenta r = new(struct nodoDetalleVenta);
+
 	cout << "\n\tCODIGO:";
 	cin >> r->codigo;
 	r->ptrProducto = nullptr;
@@ -637,14 +641,14 @@ void insertar_producto_venta(DetalleVenta& q, Linea arbol)
 	
 	do
 	{
-		cout << "\n\tINGRESE LINEA DEL PRODUCTO: ";
-		cin >> codLinea;
+		cout << "\n\t~~~Digite la linea del producto a insertar: ";
+		cin >> codigo_linea;
 		cout << "\n\tCODIGO DE PRODUCTO:";
-		cin >> x;
-		validado = validar_codigo_producto(arbol, codLinea, x, r->ptrProducto);
+		cin >> codigo_producto;
+		validado = validar_codigo_producto(arbol, codigo_linea, codigo_producto, r->ptrProducto);
 		if (validado)
 		{
-			cout << "\n\t NOMBRE :" << (r->ptrProducto)->nomProd;
+			cout << "\n\t NOMBRE :" << (r->ptrProducto)->nombre_producto;
 			cout << "\n\t PRECIO :" << (r->ptrProducto)->precio;
 		}
 		if (!validado)
@@ -652,8 +656,8 @@ void insertar_producto_venta(DetalleVenta& q, Linea arbol)
 			cout << "\n\tCODIGO INVALIDO...!!";
 		}
 		cout << "\n\n\tDesea continuar  ? <y/n>: ";
-		cin >> op;
-		switch (op)
+		cin >> opcion;
+		switch (opcion)
 		{
 		case 'y': break;
 
@@ -667,24 +671,24 @@ void insertar_producto_venta(DetalleVenta& q, Linea arbol)
 		}
 	}
 	while (!validado);
-	r->codProd = x;
+	r->codProd = codigo_producto;
 	cout << "\n\tCANTIDAD:";
 	cin >> r->cantidad;
 
-	strcpy_s(r->marca, (r->ptrProducto)->nomProd);
+	strcpy_s(r->marca, (r->ptrProducto)->nombre_producto);
 
 	r->subtotal = (r->cantidad) * ((r->ptrProducto)->precio);
-	r->sgte = nullptr;
+	r->siguiente = nullptr;
 
-	if (q == nullptr)
-		q = r;
+	if (detalle_venta == nullptr)
+		detalle_venta = r;
 	else
 	{
-		t = q;
-		while (t->sgte != nullptr)
-			t = t->sgte;
+		DetalleVenta t = detalle_venta;
+		while (t->siguiente != nullptr)
+			t = t->siguiente;
 
-		t->sgte = r;
+		t->siguiente = r;
 	}
 }
 
@@ -718,42 +722,46 @@ void detalle_de_venta(DetalleVenta& detalle, Linea arbol, Venta& venta)
 /*------- Funcion que registra una venta a la lista enlazada venta  --------*/
 void registrar_venta(Venta& venta, Cliente cliente, Linea arbol)
 {
-	int x;
-	char op;
+	int codigo_cliente;
+	char opcion;
 	float total = 0;
-	bool validado;
-	Venta q, t;
 	DetalleVenta aux;
-	q = new(struct nodoVenta);
+	Venta nueva_venta = new(struct nodoVenta);
 	cout << "\n\n\t\t[    BOLETA DE VENTAS   ]\n";
 	cout << "\t\t------------------------";
-	cout << "\n\tCODIGO:";
-	cin >> q->codigo;
+	cout << "\n\t~~~Codigo de venta: ";
+
+	while (!(cin >> nueva_venta->codigo))
+	{
+		cout << "Entrada invalda. Intente nuevamente, gracias. " << endl;
+		cout << "\n\t~~~ Codigo de venta ~~~ : ";
+	}
 	cin.ignore();
-	cout << "\n\tFECHA:";
-	cin.getline(q->fecha, max_doce);
-	validado = false;
+	cout << "\n\t~~~Fecha: "; // TODO: Intentar implementarla de la misma forma en la que lo hice en el pasado trabajo final
+	cin.getline(nueva_venta->fecha, max_doce);
+	bool validado;
+	
 	do
 	{
 		cout << "\n\tCODIGO DE CLIENTE:";
-		cin >> x;
-		validado = validar_codigo_cliente(cliente, x, q->ptrCliente);
+		cin >> codigo_cliente;
+		validado = validar_codigo_cliente(cliente, codigo_cliente, nueva_venta->ptrCliente);
 		if (validado == true)
-			cout << "\n\tNOMBRE:" << (q->ptrCliente)->nomCliente;
+			cout << "\n\tNOMBRE:" << (nueva_venta->ptrCliente)->nomCliente;
 		if (validado == false)
 			cout << "\n\tCODIGO INVALIDO...!!";
 		cout << "\n\n\tDesea continuar con el registro de venta ? <y/n>: ";
-		cin >> op;
-		switch (op)
+		cin >> opcion;
+		switch (opcion)
 		{
 		case 'y': break;
 
 		case 'Y': break;
 
-		case 'n': delete(q);
+		case 'n': delete(nueva_venta);
 			return;
 
-		case 'N': delete(q);
+		case 'N': delete(nueva_venta);
 			return;
 
 		default: cout << "\n\t Ingrese una opcion valida";
@@ -761,28 +769,28 @@ void registrar_venta(Venta& venta, Cliente cliente, Linea arbol)
 	}
 	while (validado == false);
 
-	q->codCliente = x;
-	q->detalle = nullptr;
-	q->sgte = nullptr;
-	detalle_de_venta(q->detalle, arbol, q); //insertamos los productos deseados
+	nueva_venta->codCliente = codigo_cliente;
+	nueva_venta->detalle = nullptr;
+	nueva_venta->siguiente = nullptr;
+	detalle_de_venta(nueva_venta->detalle, arbol, nueva_venta); //insertamos los productos deseados
 	/*--- calculamos el monto */
-	aux = q->detalle;
+	aux = nueva_venta->detalle;
 	while (aux != nullptr)
 	{
 		total = total + aux->subtotal;
-		aux = aux->sgte;
+		aux = aux->siguiente;
 	}
-	q->monto = total;
+	nueva_venta->monto = total;
 	if (venta == nullptr)
-		venta = q;
+		venta = nueva_venta;
 
 	else
 	{
-		t = venta;
-		while (t->sgte != nullptr)
-			t = t->sgte;
+		Venta t = venta;
+		while (t->siguiente != nullptr)
+			t = t->siguiente;
 
-		t->sgte = q;
+		t->siguiente = nueva_venta;
 	}
 }
 
@@ -801,7 +809,7 @@ void listar_ventas(Venta q)
 		cout << "\n\tNOMBRE DEL CLIENTE:" << (q->ptrCliente)->nomCliente;
 		cout << "\n\tMONTO:" << q->monto;
 
-		q = q->sgte;
+		q = q->siguiente;
 		i++;
 	}
 }
@@ -827,14 +835,14 @@ void mostrar_venta(Venta q, int cod)
 				cout << "\n\tCODIGO:" << (q->detalle)->codigo;
 				cout << "\n\tCODIGO DEL PRODUCTO:" << (q->detalle)->codProd;
 				cout << "\n\tCANTIDAD:" << (q->detalle)->cantidad;
-				cout << "\n\tMARCA:" << (q->detalle)->ptrProducto->nomProd;
+				cout << "\n\tMARCA:" << (q->detalle)->ptrProducto->nombre_producto;
 				cout << "\n\tSUBTOTAL:" << (q->detalle)->subtotal;
-				(q->detalle) = (q->detalle)->sgte;
+				(q->detalle) = (q->detalle)->siguiente;
 				i++;
 			}
-			q = q->sgte;
+			q = q->siguiente;
 		}
-		else q = q->sgte;
+		else q = q->siguiente;
 	}
 }
 
@@ -998,7 +1006,7 @@ void insertar_producto_pedido(DetallePedido& q, Linea arbol)
 		validado = validar_codigo_producto(arbol, codLinea, x, r->ptrProducto);
 		if (validado == true)
 		{
-			cout << "\n\t NOMBRE :" << (r->ptrProducto)->nomProd;
+			cout << "\n\t NOMBRE :" << (r->ptrProducto)->nombre_producto;
 			cout << "\n\t PRECIO :" << (r->ptrProducto)->precio;
 		}
 		if (validado == false)
@@ -1023,7 +1031,7 @@ void insertar_producto_pedido(DetallePedido& q, Linea arbol)
 	cout << "\n\tCANTIDAD:";
 	cin >> r->cantidad;
 
-	strcpy_s(r->marca, (r->ptrProducto)->nomProd);
+	strcpy_s(r->marca, (r->ptrProducto)->nombre_producto);
 
 	r->subtotal = (r->cantidad) * ((r->ptrProducto)->precio);
 	r->sgte = nullptr;
@@ -1177,7 +1185,7 @@ void mostrar_pedido(Pedido q, int cod)
 				cout << "\n\tCODIGO:" << (q->detalle)->codigo;
 				cout << "\n\tCODIGO DEL PRODUCTO:" << (q->detalle)->codProd;
 				cout << "\n\tCANTIDAD:" << (q->detalle)->cantidad;
-				cout << "\n\tMARCA:" << (q->detalle)->ptrProducto->nomProd;
+				cout << "\n\tMARCA:" << (q->detalle)->ptrProducto->nombre_producto;
 				cout << "\n\tSUBTOTAL:" << (q->detalle)->subtotal;
 				(q->detalle) = (q->detalle)->sgte;
 				i++;
