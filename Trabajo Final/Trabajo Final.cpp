@@ -1231,6 +1231,8 @@ int main()
 	Proveedor proveedor = nullptr;
 	Pedido pedido = nullptr;
 
+	cout << "Presione [ENTER] para iniciar el proyecto...\n";
+	system("pause");
 	cout << "Inicializando proyecto...\n";
 	Sleep(1500);
 	system("cls");
