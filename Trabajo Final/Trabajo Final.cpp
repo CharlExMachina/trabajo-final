@@ -907,27 +907,27 @@ void actualizar_proveedor(Proveedor& proveedor, int cod)
 			switch (opcion)
 			{
 			case 1: cin.ignore();
-				cout << "\n\tINGRESE NUEVA RAZON SOCIAL :";
+				cout << "\n\tINGRESE NUEVA RAZON SOCIAL-->  ";
 				cin.getline(proveedor->razonSocial, max_char);
 				break;
 
 			case 2: cin.ignore();
-				cout << "\n\tINGRESE NUEVO TELEFONO :";
+				cout << "\n\tINGRESE NUEVO TELEFONO-->  ";
 				cin.getline(proveedor->telefono, max_doce);
 				break;
 
 			case 3: cin.ignore();
-				cout << "\n\tINGRESE NUEVO E-MAIL :";
+				cout << "\n\tINGRESE NUEVO E-MAIL-->  ";
 				cin.getline(proveedor->email, max_char);
 				break;
 
 			case 4: cin.ignore();
-				cout << "\n\tINGRESE NUEVA DIRECCION :";
+				cout << "\n\tINGRESE NUEVA DIRECCION-->  ";
 				cin.getline(proveedor->direccion, max_char);
 				break;
 
 			case 5: cin.ignore();
-				cout << "\n\tINGRESE NUEVA WEB :";
+				cout << "\n\tINGRESE NUEVA WEB-->  ";
 				cin.getline(proveedor->web, max_char);
 				break;
 
